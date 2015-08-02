@@ -29,15 +29,15 @@ convert_map = [
 
 
 def fis = new FileInputStream("GenBankGff3/ref_GRCh38.p2_top_level.gff3")
-def fos = new FileOutputStream("GenBankGff3/GenbankOutput.fa")
+def fos = new FileOutputStream("GenBankGff3/GenbankOutput.gff3")
 
 //>NC_000017.11 Homo sapiens chromosome 17, GRCh38.p2 Primary Assembly
 fis.eachLine(){ line -> 
-   if(line.startsWith(">NC")){
-	   String[] lines = line.split(" ")
-	   String key = lines[0].substring(1)
+   if(line.startsWith("NC")){
+	   String[] lines = line.split("\t")
+	   String key = lines[0]
 	   String replaced = "chr"+convert_map[key]
-	   replaced = ">"+replaced + " " +  (lines as List).subList(1,lines.size()).join(" ") 
+	   replaced = replaced + "\t" +  (lines as List).subList(1,lines.size()).join("\t") 
        fos << replaced  
    }
    else{
