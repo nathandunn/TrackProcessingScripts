@@ -28,8 +28,8 @@ convert_map = [
 	]
 
 
-//def fis = new FileInputStream("RefSeqFasta/GCF_000001405.28_GRCh38.p2_genomic.fna")
-def fis = new FileInputStream("RefSeqFasta/Test.fna")
+def fis = new FileInputStream("RefSeqFasta/GCF_000001405.28_GRCh38.p2_genomic.fna")
+//def fis = new FileInputStream("RefSeqFasta/Test.fna")
 def fos = new FileOutputStream("RefSeqFasta/RefSeqGenome.fa")
 
 //>NC_000017.11 Homo sapiens chromosome 17, GRCh38.p2 Primary Assembly
